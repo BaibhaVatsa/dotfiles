@@ -4,14 +4,49 @@
 mkdir code
 cd code
 
+# git
+sudo apt install git-all
+
+# terminator
+# set terminator as the official terminal emulator
+# add shit to .bashrc
+# taskwarrior
+# guake
+# openvpn
+# nmap
+# curl
+# exiftool
+# python-pil
+# sqlitebrowser
+# electron
+# requests
+# idle
+# xclip
+# colorama
+# binwalk
+# bsdgames
+# sqlite
+# java
+sudo apt-get install default-jdk
+
+# ffmpeg
+sudo apt-get -q install ffmpeg
+
+# openssl python
+# scapy
 # python
 sudo apt-get -q install python3
+
+# pip
+curl https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py
+
+# python packages
 pip3 -q install matplotlib numpy scipy beautifulsoup4 opencv-python opencv-contrib-python
 
 # entr
 sudo apt-get -q install entr
 
-# cipher and stuff
 # stegsolve and stuff?
 # vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -68,15 +103,15 @@ git pull "https://github.com/radare/radare2.git"
 # git credentials
 
 # ls
-# gedit?
+# gedit
+sudo apt-get install gedit
+
 # spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update
 sudo apt-get install spotify-client
 
-# cmake
 # gradle
-# keyboard
-# egrep
-#
+# apt-rdepends
+sudo apt-get install apt-rdepends

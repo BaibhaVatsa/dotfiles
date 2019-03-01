@@ -62,6 +62,7 @@ sudo apt-get -q install python3
 # pip
 echo "Installing pip..."
 wget "https://bootstrap.pypa.io/get-pip.py" -q
+chmod +x get-pip.py
 python3 get-pip.py
 
 # python packages
@@ -70,7 +71,7 @@ pip3 -q install matplotlib numpy scipy
 echo "Installing beautifulsoup4..."
 pip3 -q install beautifulsoup4
 echo "Installing opencv-python and opencv-contrib-python..."
-pip3 -q install opencv-python opencv-contrib-python
+pip3 -q install opencv-python opencv-contrib-python python-opencv
 
 # entr
 echo "Installing entr..."
@@ -88,6 +89,7 @@ sudo apt-get install code
 # gitkraken
 echo "Installing GitKraken..."
 wget "https://release.gitkraken.com/linux/gitkraken-amd64.deb" -q
+chmod +x gitkraken-amd64.deb
 ./gitkraken-amd64.deb 
 
 # vlc
@@ -128,6 +130,7 @@ sudo apt-get install chromium-browser
 # radare2
 echo "Installing Radare2..."
 git pull "https://github.com/radare/radare2.git"
+sudo ./radare2/sys/install.sh
 
 # gedit
 echo "Installing gedit..."
@@ -154,7 +157,7 @@ sudo rosdep init
 rosdep update
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
-sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential -q
 
 # nodejs and npm
 echo "Installing Node.js 10.x..."
@@ -162,7 +165,7 @@ curl -q -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get update -q
 sudo apt-get install -y nodejs -q
 echo "Installing build tools..."
-sudo apt-get install -y build-essential -1
+sudo apt-get install -y build-essential -q
 node -v
 
 # prolog
@@ -171,19 +174,42 @@ tar -xvzf ./gprolog-1.4.5.tar.gz -q
 
 # dart
 echo "Installing dart..."
-sudo apt-get update
-sudo apt-get install apt-transport-https
-sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
-sudo apt-get update
-sudo apt-get install dart
+sudo apt-get update -q
+sudo apt-get install apt-transport-https -q
+sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub -q | apt-key add -'
+sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list -q > /etc/apt/sources.list.d/dart_stable.list'
+sudo apt-get update -q
+sudo apt-get install dart -q
 echo 'export PATH="$PATH:/usr/lib/dart/bin"' >> ~/.profile
 
 # thefuck
 echo "Installling thefuck..."
-pip3 install thefuck
+pip3 install thefuck -q
 echo 'eval $(thefuck --alias)' >> ~/.bashrc
 source ~/.bashrc
+
+# vmware player
+echo "Installing VMWare Player..."
+sudo apt install build-essential -q
+wget https://www.vmware.com/go/getplayer-linux -q
+chmod +x getplayer-linux
+./getplayer-linux
+
+# wireshark
+echo "Installing wireshark..."
+sudo add-apt-repository ppa:wireshark-dev/stable -q
+sudo apt-get update -q 
+sudo apt-get install wireshark -q
+
+# ida
+wget https://out7.hex-rays.com/files/idafree70_linux.run -q 
+chmod +x idafree70_linux.run
+./idafree70_linux.run
+
+# requests
+echo "Installing requests..."
+pip3 install requests -q
+
 
 # go
 # slack
@@ -191,17 +217,7 @@ source ~/.bashrc
 # set up file paths and shit
 # add shit to .bashrc
 # stegsolve and stuff?
-# vmware player
-# wireshark
-# gradle
-# ida
 # setup wallpaper
 # setup icons and shit
-# opencv
-# mathematica?
-# requests
-echo "Installing requests..."
-pip3 install requests
-
-echo "Successfully done..."
+echo "Completed everything..."
 exit

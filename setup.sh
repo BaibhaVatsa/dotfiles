@@ -179,6 +179,12 @@ sudo apt-get update
 sudo apt-get install dart
 echo 'export PATH="$PATH:/usr/lib/dart/bin"' >> ~/.profile
 
+# thefuck
+echo "Installling thefuck..."
+pip3 install thefuck
+echo 'eval $(thefuck --alias)' >> ~/.bashrc
+source ~/.bashrc
+
 # go
 # slack
 # IDEs?

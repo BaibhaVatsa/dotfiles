@@ -210,14 +210,21 @@ chmod +x idafree70_linux.run
 echo "Installing requests..."
 pip3 install requests -q
 
-
 # go
 # slack
 # IDEs?
 # set up file paths and shit
 # add shit to .bashrc
-# stegsolve and stuff?
-# setup wallpaper
-# setup icons and shit
+# nautilius
+# zsh
+# add shit to .zshrc
+# install awesome
+echo "Installing awesome..."
+sudo apt-get install awesome -q
+mkdir ~/.config/awesome/
+cp rc.lua ~/.config/awesome/
+
+# done
 echo "Completed everything..."
-exit
+echo "Restarting..."
+sudo reboot

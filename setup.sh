@@ -256,9 +256,7 @@ sudo npm install -g react-native-cli
 # install awesome
 echo "Installing awesome..."
 sudo apt-get install awesome -q
-mkdir ~/.config/awesome/
-cp rc.lua ~/.config/awesome/
-cp -a themes ~/.config/awesome/
+mv ./awesome ~/.config/
 
 # .bashrc and .zshrc
 echo "Adding to .bashrc and .zshrc..."

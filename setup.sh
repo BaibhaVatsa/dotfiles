@@ -134,6 +134,7 @@ sudo apt-get install chromium-browser -q
 # radare2
 echo "Installing Radare2..."
 mkdir r2 && cd r2
+git init
 git pull https://github.com/radare/radare2.git
 sudo ./radare2/sys/install.sh
 cd ..
@@ -172,7 +173,6 @@ sudo apt-get update -q
 sudo apt-get install -y nodejs -q
 echo "Installing build tools..."
 sudo apt-get install -y build-essential -q
-node -v
 
 # prolog 
 echo "Installing prolog..."
@@ -246,12 +246,20 @@ sudo apt-get install alsa -q
 
 # reactjs
 echo "Installing ReactJS..."
-sudo npm install -g babel-cli@6 babel-preset-react-app@3
-sudo npm install -g react react-dom
+npm install -g babel-cli@6 babel-preset-react-app@3
+npm install -g react react-dom
 
 # react native
 echo "Installing React Native..."
-sudo npm install -g react-native-cli
+npm install -g react-native-cli
+
+# vscode - contributing
+mkdir vscode && cd vscode
+git init
+git pull https://github.com/BaibhaVatsa/vscode.git
+cd vscode
+yarn
+cd ..
 
 # install awesome
 echo "Installing awesome..."
@@ -264,13 +272,13 @@ echo 'alias launch_clion="sh ~/clion/bin/clion.sh"' >> ~/.bashrc
 echo 'alias launch_pycharm="sh ~/pycharm/bin/pycharm.sh"' >> ~/.zshrc
 echo 'alias launch_clion="sh ~/clion/bin/clion.sh"' >> ~/.zshrc
 echo 'alias launch_pycharm="sh ~/pycharm/bin/pycharm.sh"' >> ~/.bashrc
-cp build_vscode.py ~/
+mv build_vscode.py ~/
 echo 'alias build_vscode="python ~/build_vscode.py"' >> ~/.bashrc
 echo 'alias build_vscode="python ~/build_vscode.py"' >> ~/.zshrc
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export GOPATH=$HOME/go' >> ~/.zshrc
-echo "timeout 2 cmatrix -ab &" >> ~/.bashrc
-echo "timeout 2 cmatrix -ab &" >> ~/.zshrc
+# echo "timeout 2 cmatrix -ab &" >> ~/.bashrc
+# echo "timeout 2 cmatrix -ab &" >> ~/.zshrc
 echo 'echo "Welcome back, "$USER"!"' >> ~/.bashrc
 echo 'echo "Welcome back, "$USER"!"' >> ~/.zshrc
 
